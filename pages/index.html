@@ -1,652 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-icons.css">
-    <style>
-      body{
-        font-family: 'Hina Mincho';
-      }
-      .customb{
-        border: 1px solid;
-        text-align: center;
-        font-size: smaller;
-      }
-      .navbar-nav .nav-link:hover{
-        color: #ffffff;
-        text-shadow: 
-        0 0 5px  #fff,
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-icons.css">
+  <style>
+    body {
+      font-family: 'Hina Mincho';
+    }
+
+    .customb {
+      border: 1px solid;
+      text-align: center;
+      font-size: smaller;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffffff;
+      text-shadow:
+        0 0 5px #fff,
         0 0 10px #ccff00,
         0 0 20px #aaff00,
         0 0 40px #88cc00,
         0 0 60px #66aa00;
-      }
-      .one .container {
-        background-image: url('../dev/STUDIO\ NEON.png');
-        background-size: cover;      
-        background-position: center; 
-        background-repeat: no-repeat;
-        position: relative;
-        min-height: 80vh;
-        border-radius: 30px;
-        color: white;
-        padding: 70px 40px;                  
-      }
-      .hero-links a{
-         margin-right: 25px;
-         color: white;
-        text-decoration: none;
-      }
-      .project-card{
-       width: 100%; 
-       max-width: 220px;
+    }
+
+    .one .container {
+      background-image: url('../dev/STUDIO\ NEON.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: 80vh;
+      border-radius: 30px;
+      color: white;
+      padding: 70px 40px;
+    }
+
+    .hero-links a {
+      margin-right: 25px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .project-card {
+      width: 100%;
+      max-width: 220px;
       padding: 10px;
-      border-radius: 20px; 
+      border-radius: 20px;
       backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       margin-top: -60px;
       transition: all 0.3s ease;
-      
-      }
-      .project-card:hover{
-        transform: translateY(-10px);
+
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .stats-overlap {
+      position: relative;
+      z-index: 10;
+      margin-top: -130px;
+      padding: 40px;
+      border-radius: 25px 0 0 0;
+      background-color: #fff;
+      width: 100%
+    }
+
+    .team-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 15px;
+      border-radius: 50%;
+      height: 180px;
+      width: 180px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+
+    .team-circle img {
+      width: 40px;
+    }
+
+    .team-circle p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+
+    .grayscale {
+      filter: grayscale(100%);
+      transition: 0.3s;
+    }
+
+    .team-circle:hover {
+      transform: scale(1.05);
+      background: #f5f5f5;
+    }
+
+
+    .team-circle:hover img {
+      filter: grayscale(0%);
+    }
+
+
+    .team-circle:hover .ars {
+      color: #d01e1e;
+    }
+
+    .team-circle:hover .barça {
+      color: #19059a;
+    }
+
+    .team-circle:hover .byrn {
+      color: #863b3b;
+    }
+
+    .team-circle:hover .tott {
+      color: rgb(4, 4, 81)
+    }
+
+    .team-circle:hover .inter {
+      color: #2605ba;
+    }
+
+    .four-content {
+      background-color: #e8e5e5;
+      padding: 50px;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .feature-box {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-card {
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: #f5f5f5;
+      transform: scale(1.1);
+      overflow: hidden;
+    }
+
+    .bi {
+      font-size: 1.5rem;
+      color: #16c171;
+      margin-bottom: 15px;
+    }
+
+    .five {
+      background-color: #fff;
+      padding: 40px;
+    }
+
+    .link {
+      color: #000000;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .link:hover {
+      color: #000000a9;
+      text-decoration: none;
+    }
+
+    .f-txt-two {
+      margin-top: 101px;
+    }
+
+    .navbar-brand-text {
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .sxth-cont {
+      background-color: #eaeff9;
+      border-radius: 25px;
+      padding: 15px 2px;
+    }
+
+    .bi-sun,
+    .bi-wind,
+    .bi-plug {
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .bi.bi-plug:hover,
+    .bi.bi-sun:hover,
+    .bi.bi-wind:hover {
+      transform: scale(1.12);
+    }
+
+    .boldd {
+      font-weight: 900;
+    }
+
+    .fnsh-text {
+      font-size: small;
+    }
+
+    @media screen and (max-width: 600px) {
+
+      .project-card {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin-top: 20px;
       }
 
       .stats-overlap {
         position: relative;
         z-index: 10;
-        margin-top: -130px;
+        margin-top: 20px;
         padding: 40px;
-        border-radius: 25px 0 0 0; 
         background-color: #fff;
-        width: 100%
-      }
-      .team-circle{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-
-        padding:15px;
-        border-radius:50%;
-        height: 180px;
-        width: 180px;
-        box-shadow:0 5px 15px rgba(0,0,0,0.2);
-
-        transition:0.3s;
-        cursor:pointer;
+        width: 100%;
       }
 
+      .team-circle {
+        height: 100px;
+        width: 120px;
+      }
 
-.team-circle img{
-    width:40px;
-}
-.team-circle p{
-    margin:0;
-    font-weight:500;
-}
+      .team-circle img {
+        width: 30px;
+      }
 
+      .team-circle p {
+        margin: 0;
+        font-weight: 500;
+        font-size: 10px;
+      }
 
-.grayscale{
-    filter:grayscale(100%);
-    transition:0.3s;
-}
-.team-circle:hover{
-    transform:scale(1.05);
-    background:#f5f5f5;
-}
+      .f-txt-two {
+        margin-top: 70px;
+      }
 
-
-.team-circle:hover img{
-    filter:grayscale(0%);
-}
-
-
-.team-circle:hover .ars{
-    color:#d01e1e;
-}
-.team-circle:hover .barça{
-    color:#19059a;
-}
-.team-circle:hover .byrn{
-    color:#863b3b;
-}
-.team-circle:hover .tott{
-    color: rgb(4, 4, 81)
-}
-.team-circle:hover .inter{
-    color:#2605ba;
-}
-.four-content{
-  background-color: #e8e5e5;
-  padding: 50px;
-   border-radius: 25px 25px 0 0;
-}
-.feature-box{
-    background:#fff;
-    border-radius:15px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.05);
-}
-.feature-card{
-    padding:30px;
-    transition: all 0.3s ease;
-}
-.feature-card:hover{
-    background:#f5f5f5;
-    transform:scale(1.1);
-    overflow: hidden;
-}
-.bi{
-    font-size: 1.5rem;
-    color: #16c171;
-    margin-bottom: 15px;
-  }
-.five{
-  background-color: #fff;
-  padding: 40px;
-}
-.link{
-  color: #000000;
-  text-decoration: underline;
-  font-weight: 500;
-}
-.link:hover{
-  color: #000000a9;
-  text-decoration: none;
-}
-.f-txt-two{
-  margin-top: 101px;
-}
-.navbar-brand-text{
-  font-size: 19px;
-  font-weight: bold;
-}
-.sxth-cont{
-  background-color: #eaeff9;
-  border-radius: 25px;
-  padding: 15px 2px;
-}
-.bi-sun,
-.bi-wind,
-.bi-plug {
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-.bi.bi-plug:hover,
-.bi.bi-sun:hover,
-.bi.bi-wind:hover {
-  transform: scale(1.12);             
-}
-
-.boldd{
-  font-weight: 900;
-}
-.fnsh-text{
-  font-size: small;
-}
-   
-    @media screen and (max-width: 600px) {
-
-    .project-card {
-    position: static;   
-    top: auto;          
-    left: auto;
-    right: auto;
-    bottom: auto;
-    margin-top: 20px;
-  }
-  .stats-overlap {
-  position: relative;
-  z-index: 10;
-  margin-top: 20px; 
-  padding: 40px;
-  background-color: #fff;
-  width: 100%;
-}
-  .team-circle{
-    height: 100px;
-    width: 120px;
-  }
-  .team-circle img{
-    width:30px;
-  }
-  .team-circle p{
-    margin:0;
-    font-weight:500;
-    font-size: 10px;
-  }
-  .f-txt-two{
-  margin-top: 70px;
-}
-.nmb{
-  width: 100%;
-}
-}
-    </style>
+      .nmb {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand  d-flex align-items-center" href="#">
-            <img class="img-fluid me-2" height="20px" width="20px" src="../Pharmacie-Plasse.png" alt="">
-            <span class="navbar-brand-text">Xurya</span>
-          </a>
-          
-       
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link">Services</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link">Contact</a>
-        </li>
-
-      </ul>
-    </div>
-
-    <div class="d-flex align-item-center justify-content-center ms-auto">
-        <button class="customb rounded-pill bg-white text-dark me-2 px-2 py-1 d-flex justify-content-center align-items-center">Log in</button>
-        <button class="customb rounded-pill bg-success text-white me-2 px-4 py-1 d-flex justify-content-center align-items-center">Get in touch</button>
-    </div>
-  </div>
-    </nav>
-
-   <section class="one">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <div class="row align-items-center"> 
-            
-            <!-- Left Side: Text -->
-            <div class="col-md-8 hero-text">
-                <p class="subtitle">#1 Energy provider in the world</p>
-                <h1>New Energy <br> for the Future</h1>
-                <div class="hero-links mt-4">
-                    <a href="#">Get in touch &#8599;
-                    </a>
-                    <a href="#">Our services &#8599;
-                    </a>
-                </div>
-            </div>
+      <a class="navbar-brand  d-flex align-items-center" href="#">
+        <img class="img-fluid me-2" height="20px" width="20px" src="../Pharmacie-Plasse.png" alt="">
+        <span class="navbar-brand-text">Xurya</span>
+      </a>
 
-            <!-- Right Side: Card -->
-            <div class="col-md-4 d-flex justify-content-md-end justify-content-start">
-                <div class="project-card">
-                    <img src="../dev/STUDIO NEON.png" height="140px" width="120px" class="rounded">
-                    <p class="text-end mt-4">Discover Our<br>Recent Project</p>
-                </div>
-            </div>
 
-        </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="d-flex align-item-center justify-content-center ms-auto">
+        <button
+          class="customb rounded-pill bg-white text-dark me-2 px-2 py-1 d-flex justify-content-center align-items-center">Log
+          in</button>
+        <button
+          class="customb rounded-pill bg-success text-white me-2 px-4 py-1 d-flex justify-content-center align-items-center">Get
+          in touch</button>
+      </div>
     </div>
-</section>
+  </nav>
+
+  <section class="one">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- Left Side: Text -->
+        <div class="col-md-8 hero-text">
+          <p class="subtitle">#1 Energy provider in the world</p>
+          <h1>New Energy <br> for the Future</h1>
+          <div class="hero-links mt-4">
+            <a href="#">Get in touch &#8599;
+            </a>
+            <a href="#">Our services &#8599;
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Card -->
+        <div class="col-md-4 d-flex justify-content-md-end justify-content-start">
+          <div class="project-card">
+            <img src="../dev/STUDIO NEON.png" height="140px" width="120px" class="rounded">
+            <p class="text-end mt-4">Discover Our<br>Recent Project</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <section class="container my-3">
-  <div class="row">
-     <div class="stats col-md-6 d-none d-md-block"></div>
+    <div class="row">
+      <div class="stats col-md-6 d-none d-md-block"></div>
 
-     <div class="col-md-6 p-0">
-      <div class="stats-overlap">
-         <div class="row text-center px-3">
+      <div class="col-md-6 p-0">
+        <div class="stats-overlap">
+          <div class="row text-center px-3">
 
-    <div class="col-4">
-      <h2>6 mil</h2>
-      <p>The company's annual net income</p>
-    </div>
+            <div class="col-4">
+              <h2>6 mil</h2>
+              <p>The company's annual net income</p>
+            </div>
 
-    <div class="col-4">
-      <h2>315</h2>
-      <p>Projects completed worldwide</p>
-    </div>
+            <div class="col-4">
+              <h2>315</h2>
+              <p>Projects completed worldwide</p>
+            </div>
 
-    <div class="col-4">
-      <h2>120K</h2>
-      <p>Employees work in all parts of the world</p>
-    </div>
+            <div class="col-4">
+              <h2>120K</h2>
+              <p>Employees work in all parts of the world</p>
+            </div>
 
-  </div>
-      </div>
-     </div>
-  </div>
-</section>
-<section class="two">
-  <div class="container">
-  <div class="row align-items-center">
-
-    <div class="col-md-6">
-      <div class="frst text-center">
-        <h2>Focusing on Quality,<span class="text-secondary"> we <br class=""> maitain customer trust</span></h2>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+  <section class="two">
+    <div class="container">
+      <div class="row align-items-center">
 
-    <div class="col-md-6">
-      <div class="scnd text-center py-md-0 py-3"> 
-        <h6>We ensure that every installation we build has strict quality <br class="">
-        checks. Sustainable solution solutions for environmentally friendly and <br class="">
-        renewable future. 
-        </h6>
-  </div>
-  </div>
-   
-  </div>
-  </div>
-</section>
-<section class="three my-5">
-  <div class="container">
-    <div class="row text-sm-center text-md-start align-items-center justify-content-center">
+        <div class="col-md-6">
+          <div class="frst text-center">
+            <h2>Focusing on Quality,<span class="text-secondary"> we <br class=""> maitain customer trust</span></h2>
+          </div>
+        </div>
 
-      <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
-        <div class="team-circle">
-          <img class="grayscale" src="../IMGldc/arsenal.png" alt="">
-          <p class="ars">Arsenal <br> FC</p>
+        <div class="col-md-6">
+          <div class="scnd text-center py-md-0 py-3">
+            <h6>We ensure that every installation we build has strict quality <br class="">
+              checks. Sustainable solution solutions for environmentally friendly and <br class="">
+              renewable future.
+            </h6>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="three my-5">
+    <div class="container">
+      <div class="row text-sm-center text-md-start align-items-center justify-content-center">
+
+        <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
+          <div class="team-circle">
+            <img class="grayscale" src="../IMGldc/arsenal.png" alt="">
+            <p class="ars">Arsenal <br> FC</p>
+          </div>
+        </div>
+
+        <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
+          <div class="team-circle">
+            <img class="grayscale" src="../IMGldc/bayern-munchen.png" alt="">
+            <p class="byrn">Bayern <br> Munich</p>
+          </div>
+        </div>
+
+        <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
+          <div class="team-circle">
+            <img class="grayscale" src="../IMGldc/barcelona.png" alt="">
+            <p class="barça">Barcelona</p>
+          </div>
+        </div>
+
+        <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
+          <div class="team-circle">
+            <img class="grayscale" src="../IMGldc/tottenham.png" alt="">
+            <p class="tott">Tottenham <br> Hotspur</p>
+          </div>
+        </div>
+
+        <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
+          <div class="team-circle">
+            <img class="grayscale" src="../IMGldc/inter.png" alt="">
+            <p class="inter">Inter <br>nazionale</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="four">
+    <div class="container four-content">
+
+      <div class="col-md-12 text-center mb-5">
+        <h1>We offer quality, <span class="text-secondary">with the <br> best material and service</span></h1>
+      </div>
+
+      <div class="feature-box">
+
+        <div class="row g-0">
+
+          <div class="col-md-4 feature-card border">
+            <div class="icon"><i class="bi bi-layers"></i></div>
+            <h5>Layered security</h5>
+            <p>With layered security, we ensure the safety of every unit we provide.</p>
+          </div>
+
+          <div class="col-md-4 feature-card border">
+            <div class="icon"><i class="bi bi-check-circle"></i></div>
+            <h5>Quality control of each part</h5>
+            <p>Every unit you send is checked carefully for every detail.</p>
+          </div>
+
+          <div class="col-md-4 feature-card border">
+            <div class="icon"><i class="bi bi-chat-dots"></i></div>
+            <h5>Reliable customer service</h5>
+            <p>Our customer service is available 24 hours a week.</p>
+          </div>
+
+          <div class="col-md-4 feature-card border">
+            <div class="icon"><i class="bi bi-book"></i></div>
+            <h5>Maintenance manual book</h5>
+            <p>We provide a guidebook that can be used to ensure maximum care.</p>
+          </div>
+
+          <div class="col-md-4 feature-card border">
+            <div class="icon"><i class="bi bi-box"></i></div>
+            <h5>Delivered safely</h5>
+            <p>Every unit we send arrives safely and quickly.</p>
+          </div>
+
+          <div class="col-md-4 feature-card border">
+            <div class="icon"><i class="bi bi-cpu"></i></div>
+            <h5>Based on artificial intelligence</h5>
+            <p>You can control and view each unit from your phone.</p>
+          </div>
+
+        </div>
+
+      </div>
+  </section>
+  <section class="five">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-md-6 f-txt text-center text-md-start">
+
+          <div class="f-txt-one">
+            <h2 class="mb-3">Trusted services, <span class="text-secondary">for your <br>
+                various needs</span></h2>
+            <button class="btn py-1 px-2 btn-success rounded-pill">Get in touch &#8599;</button>
+          </div>
+
+          <div
+            class="f-txt-two row gx-4 gx-md-3 gy-4 gy-md-3 text-md-start text-center mb-5 mb-md-0 justify-content-center">
+            <div class="col-6">
+              <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
+                <p class="text-secondary">01</p>
+                <h6>Solar panels for <br> home</h6>
+                <a href="#" class="link">View Detail</a>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
+                <p class="text-secondary">02</p>
+                <h6>Solar panels for <br> home</h6>
+                <a href="#" class="link">View Detail</a>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
+                <p class="text-secondary">03</p>
+                <h6>Solar panels for <br> home</h6>
+                <a href="#" class="link">View Detail</a>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
+                <p class="text-secondary">04</p>
+                <h6>Solar panels for <br> home</h6>
+                <a href="#" class="link">View Detail</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-md-6 f-img">
+          <img src="../sol.jpg" class="rounded img-fluid w-100 h-75" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sixth my-4">
+    <h3 class="text-center mb-4">See how we solve <br> problems, <span class="text-secondary">right on target</span>
+    </h3>
+    <div class="container sxth-cont">
+      <div class="row align-items-center">
+
+        <div class="col-md-6">
+          <div class="sxt-frst text-center">
+            <h5 class="fw-bold">Medtronic</h5>
+
+            <figure class="text-center p-4">
+              <blockquote class="blockquote">
+                <p class="fs-5 fw-medium">
+                  "We have used services from Xurya for most of our <br>
+                  stations, this is our strategic step to continue to increase <br>
+                  the number of solar panel usage for our stations, we are <br>
+                  very satisfied with the services from Xurya."
+                </p>
+              </blockquote>
+              <button class="bg-success rounded-pill py-1 px-3 border-0 text-white">View case study</button>
+
+              <figcaption class="blockquote-footer mt-5 text-dark">
+                Jeniffer Kolobaly <cite title="Source Title" class="text-secondary">CTO EV Medtronic</cite>
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="sxt-scnd text-center">
+            <img src="../dev/dev dan.png" class="rounded img-fluid w-75" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center gx-5 gy-2 mt-5">
+      <!-- Item 1 -->
+      <div class="col-auto d-flex flex-column align-items-center">
+        <!-- Progress bar centered with w-100 -->
+        <div class="progress mb-2 w-100" style="height: 2px; background-color: #e9ecef;">
+          <div class="progress-bar bg-success" style="width: 35%;"></div>
+        </div>
+        <div class="boldd">
+          <i class="bi bi-plug text-secondary"></i> Electric car charging station
         </div>
       </div>
 
-      <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
-        <div class="team-circle">
-          <img class="grayscale" src="../IMGldc/bayern-munchen.png" alt="">
-          <p class="byrn">Bayern <br> Munich</p>
+      <!-- Item 2 -->
+      <div class="col-auto d-flex flex-column align-items-center">
+        <!-- HR centered with w-25 -->
+        <hr class="mb-2 w-100" style="height: 2px; border: none; background-color: #e9ecef; opacity: 1; margin-top: 0;">
+        <div class="text-muted">
+          <i class="bi bi-sun text-secondary"></i> Residential solar panels
         </div>
       </div>
 
-      <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
-        <div class="team-circle">
-          <img class="grayscale" src="../IMGldc/barcelona.png" alt="">
-          <p class="barça">Barcelona</p>
+      <!-- Item 3 -->
+      <div class="col-auto d-flex flex-column align-items-center">
+        <!-- HR centered with w-25 -->
+        <hr class="mb-2 w-100" style="height: 2px; border: none; background-color: #e9ecef; opacity: 1; margin-top: 0;">
+        <div class="text-muted">
+          <i class="bi bi-wind text-secondary"></i> Wind power for industry
         </div>
       </div>
-
-      <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
-        <div class="team-circle">
-          <img class="grayscale" src="../IMGldc/tottenham.png" alt="">
-          <p class="tott">Tottenham <br> Hotspur</p>
-        </div>
-      </div>
-
-      <div class="d-flex d-md-block justify-content-center justify-content-md-start col-4 col-md-2 mb-3 text-center">
-        <div class="team-circle">
-          <img class="grayscale" src="../IMGldc/inter.png" alt="">
-          <p class="inter">Inter <br>nazionale</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section class="four">
-  <div class="container four-content">
-
-    <div class="col-md-12 text-center mb-5">
-      <h1>We offer quality, <span class="text-secondary">with the <br> best material and service</span></h1>
     </div>
 
-  <div class="feature-box">
 
-    <div class="row g-0">
+  </section>
+  <footer class="bg-dark py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-start mb-3 mb-md-0">
+          <h3 class="text-white mb-3">It's time to support zero pollution,<br class="d-none d-md-block"> <span
+              class="text-secondary">with renewable ressources</span></h3>
+          <div class="chec row mt-3 justify-content-center justify-content-md-start">
 
-      <div class="col-md-4 feature-card border">
-        <div class="icon"><i class="bi bi-layers"></i></div>
-        <h5>Layered security</h5>
-        <p>With layered security, we ensure the safety of every unit we provide.</p>
-      </div>
+            <div
+              class="ch-o col-12 col-md-6 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-start mb-3 mb-md-0 text-center text-sm-start">
+              <i class="bi bi-check-circle-fill text-success fs-4 me-0 me-sm-3 mb-2 mb-sm-0"></i>
+              <h6 class="mb-0 text-white">Experience for more than 10 years</h6>
+            </div>
 
-      <div class="col-md-4 feature-card border">
-        <div class="icon"><i class="bi bi-check-circle"></i></div>
-        <h5>Quality control of each part</h5>
-        <p>Every unit you send is checked carefully for every detail.</p>
-      </div>
-
-      <div class="col-md-4 feature-card border">
-        <div class="icon"><i class="bi bi-chat-dots"></i></div>
-        <h5>Reliable customer service</h5>
-        <p>Our customer service is available 24 hours a week.</p>
-      </div>
-
-      <div class="col-md-4 feature-card border">
-        <div class="icon"><i class="bi bi-book"></i></div>
-        <h5>Maintenance manual book</h5>
-        <p>We provide a guidebook that can be used to ensure maximum care.</p>
-      </div>
-
-      <div class="col-md-4 feature-card border">
-        <div class="icon"><i class="bi bi-box"></i></div>
-        <h5>Delivered safely</h5>
-        <p>Every unit we send arrives safely and quickly.</p>
-      </div>
-
-      <div class="col-md-4 feature-card border">
-        <div class="icon"><i class="bi bi-cpu"></i></div>
-        <h5>Based on artificial intelligence</h5>
-        <p>You can control and view each unit from your phone.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<section class="five">
-  <div class="container">
-    <div class="row justify-content-center">
-
-      <div class="col-md-6 f-txt text-center text-md-start">
-
-        <div class="f-txt-one">
-          <h2 class="mb-3">Trusted services, <span class="text-secondary">for your <br>
-              various needs</span></h2>
-          <button class="btn py-1 px-2 btn-success rounded-pill">Get in touch &#8599;</button>
-        </div>
-
-        <div class="f-txt-two row gx-4 gx-md-3 gy-4 gy-md-3 text-md-start text-center mb-5 mb-md-0 justify-content-center">
-          <div class="col-6">
-            <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
-              <p class="text-secondary">01</p>
-              <h6>Solar panels for <br> home</h6>
-              <a href="#" class="link">View Detail</a>
+            <div
+              class="ch-o col-12 col-md-6 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-start text-center text-sm-start">
+              <i class="bi bi-check-circle-fill text-success fs-4 me-0 me-sm-3 mb-2 mb-sm-0"></i>
+              <h6 class="mb-0 text-white">Support for the latest technologies</h6>
             </div>
           </div>
-          <div class="col-6">
-             <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
-              <p class="text-secondary">02</p>
-              <h6>Solar panels for <br> home</h6>
-              <a href="#" class="link">View Detail</a>
-            </div>
-          </div>
-          <div class="col-6">
-             <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
-              <p class="text-secondary">03</p>
-              <h6>Solar panels for <br> home</h6>
-              <a href="#" class="link">View Detail</a>
-            </div>
-          </div>
-          <div class="col-6">
-             <div class="nmb border rounded py-3 px-4 w-md-75 w-100 mx-md-0 mx-auto">
-              <p class="text-secondary">04</p>
-              <h6>Solar panels for <br> home</h6>
-              <a href="#" class="link">View Detail</a>
-            </div>
-          </div>
-
         </div>
-        
-      </div>
-      <div class="col-md-6 f-img">
-        <img src="../sol.jpg" class="rounded img-fluid w-100 h-75" alt="">
-      </div>
-    </div>
-  </div>
-</section>
-<section class="sixth my-4">
-    <h3 class="text-center mb-4">See how we solve <br> problems, <span class="text-secondary">right on target</span></h3>
-  <div class="container sxth-cont">
-    <div class="row align-items-center">
+        <div class="col-md-5 text-center text-md-start mt-4 mt-md-0">
+          <h5 class="text-white">
+            By increasing the effectiveness and efficiency of electricity <br class="d-none d-xl-block">
+            use, the use of renewable resources is very profitable for all <br class="d-none d-xl-block">
+            industrial services.</h5>
+          <div class="ft-btn mt-4"><button class="btn py-1 px-2 bg-white bg-outline-dark rounded-pill">Get in touch
+              &#8599;</button></div>
 
-      <div class="col-md-6">
-        <div class="sxt-frst text-center">
-          <h5 class="fw-bold">Medtronic</h5>
-
-          <figure class="text-center p-4">
-           <blockquote class="blockquote">
-             <p class="fs-5 fw-medium">
-               "We have used services from Xurya for most of our <br> 
-               stations, this is our strategic step to continue to increase <br> 
-               the number of solar panel usage for our stations, we are <br> 
-               very satisfied with the services from Xurya."
-             </p>
-           </blockquote>
-            <button class="bg-success rounded-pill py-1 px-3 border-0 text-white">View case study</button>
-
-           <figcaption class="blockquote-footer mt-5 text-dark">
-             Jeniffer Kolobaly <cite title="Source Title" class="text-secondary">CTO EV Medtronic</cite>
-           </figcaption>
-          </figure>
-         
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="sxt-scnd text-center">
-          <img src="../dev/dev dan.png" class="rounded img-fluid w-75" alt="">
-        </div>
-      </div>
-      </div>
-      </div>
-
-     <div class="row justify-content-center gx-5 gy-2 mt-5">
-  <!-- Item 1 -->
-  <div class="col-auto d-flex flex-column align-items-center">
-    <!-- Progress bar centered with w-100 -->
-    <div class="progress mb-2 w-100" style="height: 2px; background-color: #e9ecef;">
-      <div class="progress-bar bg-success" style="width: 35%;"></div>
-    </div>
-    <div class="boldd">
-      <i class="bi bi-plug text-secondary"></i> Electric car charging station
-    </div>
-  </div>
-
-  <!-- Item 2 -->
-  <div class="col-auto d-flex flex-column align-items-center">
-    <!-- HR centered with w-25 -->
-    <hr class="mb-2 w-100" style="height: 2px; border: none; background-color: #e9ecef; opacity: 1; margin-top: 0;">
-    <div class="text-muted">
-      <i class="bi bi-sun text-secondary"></i> Residential solar panels
-    </div>
-  </div>
-
-  <!-- Item 3 -->
-  <div class="col-auto d-flex flex-column align-items-center">
-    <!-- HR centered with w-25 -->
-    <hr class="mb-2 w-100" style="height: 2px; border: none; background-color: #e9ecef; opacity: 1; margin-top: 0;">
-    <div class="text-muted">
-      <i class="bi bi-wind text-secondary"></i> Wind power for industry
-    </div>
-  </div>
-</div>
-
-
-</section>
-<footer class="bg-dark py-4">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-7 text-center text-md-start mb-3 mb-md-0">
-        <h3 class="text-white mb-3">It's time to support zero pollution,<br> <span class="text-secondary">with renewable ressources</span></h3>
-        <div class="chec row mt-3 justify-content-center justify-content-md-start">
-
-          <div class="ch-o col-12 col-sm-6 d-flex align-items-center">
-            <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
-            <h6 class="mb-0 text-white">Experience for more than 10 years</h6>
-          </div>
-
-         <div class="ch-o col-12 col-sm-6 d-flex align-items-center">
-            <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
-            <h6 class="mb-0 text-white">Support for the latest technologies</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5 text-center text-md-start">
-        <h5 class="text-white"> 
-          By increasing the effectiveness and efficiency of electricity <br> 
-          use, the use of renewable resources is very profitable for all <br> 
-          industrial services.</h5>
-          <div class="ft-btn mt-4"><button class="btn py-1 px-2 bg-white bg-outline-dark rounded-pill">Get in touch &#8599;</button></div>
-         
-      </div>
-    </div>
-
-     <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 80px;">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="margin-top: 80px;">
         <div class="container">
-            <a class="navbar-brand  d-flex align-items-center" href="#">
+          <a class="navbar-brand  d-flex align-items-center" href="#">
             <img class="img-fluid me-2" height="20px" width="20px" src="../Pharmacie-Plasse.png" alt="">
-            <span class="navbar-brand-text">Xurya</span>
+            <span class="navbar-brand-text text-white">Xurya</span>
           </a>
-          
-       
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
 
-    <div class="collapse navbar-collapse justify-content-center text-center text-lg-start" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#footerNav"
+            aria-controls="footerNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
+          <div class="collapse navbar-collapse justify-content-center text-center text-lg-start mt-3 mt-lg-0"
+            id="footerNav">
+            <ul class="navbar-nav ms-lg-5 justify-content-lg-center w-100">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
 
-        <li class="nav-item">
-          <a class="nav-link">Services</a>
-        </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
 
-        <li class="nav-item">
-            <a class="nav-link">Contact</a>
-        </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
 
-      </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <div
+            class="d-flex align-items-center justify-content-center w-100 w-lg-auto text-center text-lg-end ms-lg-auto mt-4 mt-lg-0">
+            <div class="ft-icn rounded-circle bg-secondary me-3 d-flex justify-content-center align-items-center"
+              style="width: 40px; height: 40px;"><i class="bi bi-linkedin fs-4 text-white"></i></div>
+            <div class="ft-icn rounded-circle bg-secondary me-3 d-flex justify-content-center align-items-center"
+              style="width: 40px; height: 40px;"><i class="bi bi-twitter-x fs-4 text-white"></i></div>
+            <div class="ft-icn rounded-circle bg-secondary me-3 d-flex justify-content-center align-items-center"
+              style="width: 40px; height: 40px;"><i class="bi bi-facebook fs-4 text-white"></i></div>
+            <div class="ft-icn rounded-circle bg-secondary me-0 d-flex justify-content-center align-items-center"
+              style="width: 40px; height: 40px;"><i class="bi bi-instagram fs-4 text-white"></i></div>
+          </div>
+
+          <style>
+            .ft-icn {
+              transition: all 0.3s ease;
+            }
+
+            .ft-icn:hover {
+              transform: translateY(-5px);
+            }
+
+            .ft-icn:hover i {
+              transform: translateY(-5px);
+            }
+
+            .ft-icn i {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              line-height: normal !important;
+              margin: 0;
+              width: 100%;
+              height: 100%;
+            }
+          </style>
+
+        </div>
+      </nav>
+      <div class="hrz">
+        <hr class="text-secondary fw-bold mb-5 mt-4 mt-lg-5">
+      </div>
+      <div
+        class="fnsh d-flex flex-column flex-md-row justify-content-center justify-content-md-between align-items-center text-white text-center pb-2">
+        <h5 class="fnsh-text mb-3 mb-md-0">&copy; 2024 Xurya Inc. All rights reserved.</h5>
+        <h5 class="fnsh-text mb-0">Terms of Services <span class="ms-3">Privacy Policy</span> </h5>
+      </div>
+
     </div>
+  </footer>
 
-    <div class="d-flex align-item-center justify-content-center text-center text-md-end ms-0">
-        <div class="ft-icn rounded-circle bg-secondary me-3 text-center" style="width: 40px; height: 40px;"><i class="bi bi-linkedin fs-4 text-white"></i></div>
-        <div class="ft-icn rounded-circle bg-secondary me-3 text-center" style="width: 40px; height: 40px;"><i class="bi bi-twitter-x fs-4 text-white"></i></div>
-        <div class="ft-icn rounded-circle bg-secondary me-3 text-center" style="width: 40px; height: 40px;"><i class="bi bi-facebook fs-4 text-white"></i></div>
-        <div class="ft-icn rounded-circle bg-secondary me-3 text-center" style="width: 40px; height: 40px;"><i class="bi bi-instagram fs-4 text-white"></i></div>
-    </div>
-    
-  </div>
-    </nav>
-    <div class="hrz"><hr class="text-secondary fw-bold mb-5"></div>
-    <div class="fnsh d-flex align-items-center text-white">
-      <h5 class="fnsh-text">&copy; 2024 Xurya Inc. All rights reserved.</h5>
-      <h5 class="ms-auto fnsh-text">Terms of Services <span class="ms-3">Privacy Policy</span> </h5>
-    </div>
-
-  </div>
-</footer>
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
